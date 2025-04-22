@@ -30,7 +30,9 @@ jobs:
       
     - name: Create win client archive
       run: |
-        cd ./output && zip -r client-win-x64.zip *
+        pushd ./output
+        Compress-Archive -Path *.exe client-win-x64.zip
+        popd
       
     - name: Get current date
       id: date
